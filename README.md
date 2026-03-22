@@ -1,5 +1,52 @@
 # 🧠 LibreED Smart Async Pipeline Prototype
 
+## 🚀 Proposed Scalable Architecture
+
+flowchart TD
+
+A[PDF Sources / Scraper] --> B[Preprocessing Engine]
+B --> C[Question Extraction + Image Processing]
+C --> D[DuckDB Storage]
+
+D --> E[Prompt Generator]
+
+E --> F[Async Task Queue]
+
+F --> G1[LLM Worker 1]
+F --> G2[LLM Worker 2]
+F --> G3[LLM Worker N]
+
+G1 --> H[Response Processor]
+G2 --> H
+G3 --> H
+
+H --> I[Cache Layer]
+I --> J[Database Update]
+
+J --> K1[Classification Output]
+J --> K2[Theory Generation]
+
+K2 --> L[Markdown Generator]
+
+L --> M[Manifest Generator]
+
+M --> N[Frontend Assets]
+
+N --> O[React Frontend]
+
+O --> P[User Interaction + Testing Engine]
+
+
+### Overview
+
+This prototype extends LibrEd’s pipeline by introducing:
+- Async batch processing for LLM calls
+- Parallel execution model
+- Caching layer for efficiency
+- Scalable architecture for multiple exam domains
+
+This design improves performance and reduces latency compared to the sequential pipeline.
+
 A high-performance prototype inspired by LibreED that demonstrates **async processing, smart deduplication, batching, persistent caching, and lightweight AI-based classification**.
 
 ---
