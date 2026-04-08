@@ -1,57 +1,143 @@
 # 🧠 LibreED Smart Async Pipeline Prototype
 
-A high-performance prototype inspired by LibreED that demonstrates **async processing, smart deduplication, batching, persistent caching, and lightweight AI-based classification**.
+A high-performance prototype inspired by LibreED that demonstrates **async processing, smart deduplication, batching, persistent caching, and performance-aware pipeline design**.
 
 ---
 
 ## 🚀 Problem Statement
 
-The current LibreED pipeline faces challenges such as:
+The current LibreED pipeline faces key bottlenecks:
 
-- Repeated processing of duplicate questions  
-- High latency due to sequential LLM calls  
-- Lack of caching → inefficient computation  
-- Limited optimization for local environments  
+- ⏳ High latency due to **sequential LLM calls**
+- 🔁 Repeated processing of duplicate questions
+- ❌ No caching → redundant computation
+- 🐢 Poor scalability for large datasets
 
 ---
 
 ## 💡 Proposed Solution
 
-This prototype introduces:
+This prototype introduces a **scalable pipeline architecture** with:
 
-- ⚡ **Async Processing Pipeline** → parallel execution  
-- 🔥 **Batch Processing** → avoids sequential LLM calls  
-- 🧠 **Text-based Deduplication** → removes duplicate questions intelligently  
-- 💾 **Persistent Caching** → avoids re-processing previously seen questions  
-- 🤖 **Lightweight Classification Engine** → simulates topic classification  
-- 🧾 **Explanation Generation** → LLM-style output  
-- 📊 **Metrics Tracking** → performance + cache efficiency  
-- 🌐 **Streamlit Dashboard** → visualize results  
+- ⚡ Async Processing → parallel execution
+- 🔥 Batch Processing → avoids sequential blocking
+- 🧠 Smart Deduplication → prevents duplicate processing
+- 💾 Persistent Caching → avoids repeated LLM calls
+- 📊 Metrics Tracking → measures system performance
+- 🌐 Streamlit Dashboard → visualizes results
 
 ---
 
-## ✨ Features
+## 🧪 Key Enhancements (Mentor-Aligned)
 
-- ⚡ Async processing using `asyncio`  
-- 🔥 Batch processing (parallel execution of tasks)  
-- 🧠 Text-based deduplication (not ID-based)  
-- 💾 File-based persistent caching  
-- 🤖 Simulated AI classification  
-- 🧾 Auto-generated explanations  
-- 📊 Performance metrics (cache + timing + efficiency)  
-- 🌐 Interactive dashboard using Streamlit  
+This PoC directly addresses core system challenges:
+
+### ✅ 1. Reduce LLM Dependency
+- Simulated classification + explanation pipeline
+- Designed to plug into real LLM later
+
+### ✅ 2. Improve Pipeline Speed
+- Async batching eliminates sequential bottlenecks
+- Parallel execution reduces latency
+
+### ✅ 3. Caching for Efficiency
+- File-based persistent cache (`cache.json`)
+- Prevents recomputation across runs
+
+### ✅ 4. Observability (NEW 🔥)
+- Cache hit/miss tracking
+- Cache hit rate calculation
+- Total execution time tracking
 
 ---
 
 ## ⚡ Async Batching Insight
 
-Instead of waiting for each question sequentially, the system:
+Instead of:
+Q1 → wait → Q2 → wait → Q3
 
-- Processes multiple questions in parallel  
-- Groups them into batches  
-- Reduces total latency significantly  
+We do:
 
-This simulates how real-world LLM pipelines should work for scalability.
+(Q1, Q2, Q3) → processed in parallel
+
+
+✔ Reduces total runtime  
+✔ Improves throughput  
+✔ Matches real-world LLM pipelines  
+
+---
+
+## 💾 Caching System (NEW 🔥)
+
+- Stores processed results in `outputs/cache.json`
+- Uses question ID as key
+- Tracks:
+
+  - Cache Hits  
+  - Cache Misses  
+  - Cache Hit Rate (%)  
+
+### 📊 Example:
+
+| Run | Cache Hit Rate | Time |
+|-----|--------------|------|
+| First Run | 0% | High |
+| Second Run | ~100% | Near Instant |
+
+---
+
+## 📊 Metrics Tracking (NEW 🔥)
+
+Metrics are saved in:
+
+✔ Reduces total runtime  
+✔ Improves throughput  
+✔ Matches real-world LLM pipelines  
+
+---
+
+## 💾 Caching System (NEW 🔥)
+
+- Stores processed results in `outputs/cache.json`
+- Uses question ID as key
+- Tracks:
+
+  - Cache Hits  
+  - Cache Misses  
+  - Cache Hit Rate (%)  
+
+### 📊 Example:
+
+| Run | Cache Hit Rate | Time |
+|-----|--------------|------|
+| First Run | 0% | High |
+| Second Run | ~100% | Near Instant |
+
+---
+
+## 📊 Metrics Tracking (NEW 🔥)
+
+Metrics are saved in:
+outputs/metrics.json
+
+
+Includes:
+
+- Total Requests
+- Cache Hits
+- Cache Misses
+- Cache Hit Rate (%)
+- Total Execution Time
+
+---
+
+## 🌐 Dashboard (Streamlit)
+
+Interactive dashboard shows:
+
+- Questions + classification
+- Cache performance
+- System efficiency insights
 
 ---
 
@@ -60,19 +146,18 @@ This simulates how real-world LLM pipelines should work for scalability.
 - Python 3.12  
 - asyncio  
 - Streamlit  
-- JSON-based storage  
+- JSON storage  
 
 ---
 
 ## 📂 Project Structure
-
 libred-smart-pipeline-prototype/
 │
-├── async_pipeline.py
-├── cache.py
-├── metrics.py
-├── main.py
-├── app.py
+├── async_pipeline.py # async batching logic
+├── cache.py # caching + hit/miss tracking
+├── metrics.py # performance metrics
+├── main.py # pipeline runner
+├── app.py # Streamlit dashboard
 │
 ├── sample_data/
 │ └── questions.json
@@ -94,61 +179,43 @@ libred-smart-pipeline-prototype/
 pip install streamlit
 2. Run pipeline
 python main.py
-3. Run again (to see caching effect)
+3. Run again (observe caching 🚀)
 python main.py
 4. Launch dashboard
 streamlit run app.py
 📊 Example Output
 First Run:
-
 ❌ Cache MISS
-
-⏳ Processing time ~1s
-
+⏳ Higher processing time
 Second Run:
-
 ⚡ Cache HIT
-
-🚀 Processing time ~0s
-
-📈 Performance Impact
+🚀 Near-zero processing time
+🔥 Performance Impact
 Metric	Before	After
 Processing Time	High	Low
 Redundant Calls	Yes	No
-Cache Hit Rate	0%	100%
-🔥 Why This Matters
+Cache Usage	❌	✅
+Scalability	Low	High
+🎯 Why This Matters
 
-This prototype demonstrates:
+This prototype shows:
 
-How repeated LLM calls can be avoided using caching
-
-How async + batching improves performance
-
-How local pipelines can be optimized for scalability
-
+How LLM cost & latency can be reduced
+How async + batching improves scalability
+How caching dramatically improves performance
+How to build production-ready pipelines
 🚀 Future Improvements
-
-Integrate real LLM (Ollama / OpenAI)
-
-Async batching for real model inference
-
-Replace mock classifier with semantic/embedding-based classification
-
-Use better data sources (GFG / official exam portals)
-
-Generate explanations using real LLMs
-
-Extend beyond GATE to multiple exams
-
-Integrate directly into LibreED codebase
-
+🔗 Integrate real LLM (Ollama / OpenAI)
+⚡ Async batching for real model inference
+🧠 Semantic/embedding-based classification
+📚 Better data sources (official PYQs)
+🧾 Real explanation generation via LLM
+📊 Advanced metrics (latency per batch)
+🔄 Integration into LibreED pipeline
 🎥 Demo
 
 👉 https://youtu.be/eq8tBfASgIA?si=P4bIGpdKZO6DS9Mj
 
 ⭐ Key Highlight
 
-This prototype reduces repeated computation using persistent caching + async batching, making the system significantly more efficient and scalable.
-
----
-
+This prototype demonstrates how async processing + caching + metrics tracking can transform a slow sequential pipeline into a fast, scalable, and efficient system 
