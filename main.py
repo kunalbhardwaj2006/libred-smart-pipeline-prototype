@@ -1,40 +1,74 @@
-import asyncio
 import json
-from async_pipeline import run_pipeline
+import time
+
+from cache import cache_get, cache_set, get_cache_metrics
 from metrics import Metrics
 
 
-# 💾 SAVE METRICS FOR FRONTEND
-def save_metrics(metrics):
-    data = {
-        "total_requests": metrics.total_requests,
-        "cache_hits": metrics.cache_hits,
-        "cache_miss": metrics.cache_miss,
-        "total_time": metrics.total_time,
-        "cache_hit_rate": (
-            metrics.cache_hits / metrics.total_requests * 100
-            if metrics.total_requests > 0 else 0
-        )
+# 🔹 Example dummy LLM function (replace with your actual logic)
+def process_question(question):
+    """
+    Simulates processing (LLM call or classification).
+    Replace this with your real pipeline logic.
+    """
+    return {
+        "question": question,
+        "topic": "Sample Topic"
     }
 
-    with open("outputs/metrics.json", "w") as f:
-        json.dump(data, f, indent=2)
+
+def run_pipeline(questions):
+    results = []
+
+    for q in questions:
+        # Track total requests
+        metrics.total_requests += 1
+
+        # 🔹 Check cache first
+        cached = cache_get(q)
+
+        if cached:
+            results.append(cached)
+            continue
+
+        # 🔹 Process if not cached
+        output = process_question(q)
+
+        # 🔹 Save to cache
+        cache_set(q, output)
+
+        results.append(output)
+
+    return results
 
 
-# 🚀 MAIN PIPELINE RUNNER
-async def main():
-    print("🚀 Starting Smart Async Pipeline...\n")
+if __name__ == "__main__":
+    start_time = time.time()
 
+    # 🔹 Initialize metrics
     metrics = Metrics()
 
-    await run_pipeline(metrics)
+    # 🔹 Sample input (replace with your dataset/PDF input)
+    questions = [
+        "What is AI?",
+        "Explain machine learning",
+        "What is AI?",  # duplicate to test cache
+    ]
 
+    # 🔹 Run pipeline
+    results = run_pipeline(questions)
+
+    # 🔹 Save results
+    with open("outputs/results.json", "w") as f:
+        json.dump(results, f, indent=2)
+
+    # 🔹 Measure total time
+    metrics.total_time = time.time() - start_time
+
+    # 🔹 Get cache metrics
+    cache_metrics = get_cache_metrics()
+    metrics.update_cache_metrics(cache_metrics)
+
+    # 🔹 Save + print metrics
+    metrics.save()
     metrics.report()
-
-    # ✅ Save metrics for Streamlit dashboard
-    save_metrics(metrics)
-
-
-# ▶️ ENTRY POINT
-if __name__ == "__main__":
-    asyncio.run(main())
