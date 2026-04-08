@@ -1,6 +1,7 @@
 import asyncio
 import time
 import json
+
 from cache import cache_get, cache_set
 
 
@@ -45,18 +46,20 @@ def generate_explanation(question, topic):
 # 🚀 PROCESS QUESTION (ASYNC)
 async def process_question(q, metrics):
     start = time.time()
+
+    # Track request
     metrics.total_requests += 1
 
     # ⚡ CACHE CHECK
     cached = cache_get(q["id"])
+
     if cached:
         print(f"⚡ Cache HIT for {q['id']}")
-        metrics.cache_hits += 1
         return cached
 
     print(f"❌ Cache MISS for {q['id']}")
 
-    # ⏳ Simulate delay (LLM)
+    # ⏳ Simulate LLM delay
     await asyncio.sleep(0.5)
 
     topic = classify_question(q["text"])
@@ -74,7 +77,7 @@ async def process_question(q, metrics):
     # 💾 SAVE CACHE
     cache_set(q["id"], result)
 
-    metrics.cache_miss += 1
+    # ⏱️ Track time
     metrics.total_time += time.time() - start
 
     return result
@@ -96,16 +99,18 @@ async def run_pipeline(metrics):
 
     # 🔥 BATCHING
     batch_size = 2
-    batches = [questions[i:i + batch_size] for i in range(0, len(questions), batch_size)]
+    batches = [
+        questions[i:i + batch_size]
+        for i in range(0, len(questions), batch_size)
+    ]
 
     results = []
 
-    # ✅ EVERYTHING BELOW IS INSIDE FUNCTION (IMPORTANT)
     for batch in batches:
         batch_start = time.time()
 
-        batch_tasks = [process_question(q, metrics) for q in batch]
-        batch_results = await asyncio.gather(*batch_tasks)
+        tasks = [process_question(q, metrics) for q in batch]
+        batch_results = await asyncio.gather(*tasks)
 
         batch_time = time.time() - batch_start
         print(f"⚡ Batch processed in {batch_time:.2f}s")
