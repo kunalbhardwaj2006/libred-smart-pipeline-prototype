@@ -62,13 +62,13 @@ async def process_question(q, metrics):
     topic = classify_question(q["text"])
 
     result = {
-        "id": q["id"],
-        "question": q["text"],
-        "topic": topic,
-        "explanation": generate_explanation(q["text"], topic),
-        "source": "GFG",
-        "exam": "GATE",
-        "model_used": "mock-llama"
+    "id": q["id"],
+    "question": q["text"],
+    "topic": topic,
+    "explanation": generate_explanation(q["text"], topic),
+    "source": "multi-source",   # ✅ FIXED
+    "exam": "generic",          # ✅ FIXED
+    "model_used": "mock-llama"
     }
 
     # 💾 SAVE CACHE
