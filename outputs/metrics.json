@@ -1,6 +1,6 @@
 {
-  "total_requests": 2,
-  "cache_hits": 2,
+  "total_requests": 25,
+  "cache_hits": 25,
   "cache_miss": 0,
   "total_time": 0,
   "cache_hit_rate": 100.0

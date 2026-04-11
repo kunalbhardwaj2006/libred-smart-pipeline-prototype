@@ -8,5 +8,212 @@
     "id": "q2",
     "question": "Define DBMS",
     "topic": "Database Management Systems"
+  },
+  "q3": {
+    "id": "q3",
+    "question": "What is deadlock?",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q4": {
+    "id": "q4",
+    "question": "Explain process vs thread",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q5": {
+    "id": "q5",
+    "question": "What is CPU scheduling?",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q6": {
+    "id": "q6",
+    "question": "Explain normalization in DBMS",
+    "topic": "Database Management Systems",
+    "explanation": "This question is classified under Database Management Systems because it involves concepts related to Database Management Systems.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q7": {
+    "id": "q7",
+    "question": "What is ACID property?",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q8": {
+    "id": "q8",
+    "question": "Define TCP/IP model",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q9": {
+    "id": "q9",
+    "question": "What is routing?",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q10": {
+    "id": "q10",
+    "question": "Explain DNS",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q11": {
+    "id": "q11",
+    "question": "What is stack vs queue?",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q12": {
+    "id": "q12",
+    "question": "Explain binary search",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q13": {
+    "id": "q13",
+    "question": "What is time complexity?",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q14": {
+    "id": "q14",
+    "question": "Define Big-O notation",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q15": {
+    "id": "q15",
+    "question": "Explain quicksort",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q16": {
+    "id": "q16",
+    "question": "What is hashing?",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q17": {
+    "id": "q17",
+    "question": "Explain graph traversal",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q18": {
+    "id": "q18",
+    "question": "What is machine learning?",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q19": {
+    "id": "q19",
+    "question": "Define supervised learning",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q20": {
+    "id": "q20",
+    "question": "What is overfitting?",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q21": {
+    "id": "q21",
+    "question": "Explain HTTP protocol",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q22": {
+    "id": "q22",
+    "question": "What is REST API?",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q23": {
+    "id": "q23",
+    "question": "Explain virtualization",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q24": {
+    "id": "q24",
+    "question": "What is cloud computing?",
+    "topic": "General Computer Science",
+    "explanation": "This question is classified under General Computer Science because it involves concepts related to General Computer Science.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
+  },
+  "q25": {
+    "id": "q25",
+    "question": "Explain indexing in DBMS",
+    "topic": "Database Management Systems",
+    "explanation": "This question is classified under Database Management Systems because it involves concepts related to Database Management Systems.",
+    "source": "GFG",
+    "exam": "GATE",
+    "model_used": "mock-llama"
   }
 }
