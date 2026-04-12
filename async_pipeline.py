@@ -39,7 +39,8 @@ def classify_question(text):
 
 # 🤖 EXPLANATION GENERATOR
 def generate_explanation(question, topic):
-    return f"This question is classified under {topic} because it involves concepts related to {topic}."
+    # Simulated LLM-based explanation (extensible to real LLM like OpenAI/Ollama)
+    return f"[LLM GENERATED] This question relates to {topic}. Explanation generated dynamically."
 
 
 # 🚀 PROCESS QUESTION (ASYNC)
