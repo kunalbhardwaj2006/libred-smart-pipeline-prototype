@@ -35,48 +35,67 @@ def classify_question(text, subject=None):
     return "General Computer Science"
 
 
-# 🤖 REAL + FALLBACK LLM
-def generate_explanation(question, topic):
+# 🤖 ASYNC LLM (OpenAI → Ollama → Mock)
+async def generate_explanation_async(question, topic):
+
+    # ✅ 1. Try OpenAI
     api_key = os.getenv("OPENAI_API_KEY")
 
-    # 🔥 REAL LLM (if available)
     if api_key:
         try:
-            from openai import OpenAI
-            client = OpenAI(api_key=api_key)
+            from openai import AsyncOpenAI
+            client = AsyncOpenAI(api_key=api_key)
 
-            response = client.chat.completions.create(
+            response = await client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=[
-                    {"role": "system", "content": "You are a helpful computer science tutor."},
+                    {"role": "system", "content": "You are a helpful CS tutor."},
                     {"role": "user", "content": f"Explain briefly: {question}"}
                 ],
-                max_tokens=100
+                max_tokens=120
             )
 
             return response.choices[0].message.content
 
         except Exception as e:
-            return f"[LLM ERROR FALLBACK] {str(e)}"
+            print("⚠️ OpenAI failed:", e)
 
-    # ⚡ FALLBACK (Kaggle safe)
+    # ✅ 2. Try Ollama (local)
+    try:
+        import aiohttp
+
+        async with aiohttp.ClientSession() as session:
+            async with session.post(
+                "http://localhost:11434/api/generate",
+                json={
+                    "model": "llama3",
+                    "prompt": f"Explain: {question}",
+                    "stream": False
+                }
+            ) as res:
+                data = await res.json()
+                return f"[OLLAMA] {data.get('response', '')}"
+
+    except Exception as e:
+        print("⚠️ Ollama failed:", e)
+
+    # ✅ 3. Final fallback (Kaggle safe)
     return f"""
-[LLM FALLBACK MODE]
+[MOCK FALLBACK]
 
 Topic: {topic}
 
 Explanation:
-This question relates to {topic}. It tests conceptual understanding and is commonly asked in technical exams.
-
-This fallback is used when API key is not available.
+This question relates to {topic}. It tests fundamental concepts commonly asked in exams.
 """
 
 
-# 🚀 PROCESS QUESTION
+# 🚀 PROCESS QUESTION (FULLY ASYNC)
 async def process_question(q, metrics):
     start = time.time()
     metrics.total_requests += 1
 
+    # ⚡ CACHE CHECK
     cached = cache_get(q["id"])
     if cached:
         print(f"⚡ Cache HIT for {q['id']}")
@@ -85,20 +104,22 @@ async def process_question(q, metrics):
 
     print(f"❌ Cache MISS for {q['id']}")
 
-    await asyncio.sleep(0.5)
-
     topic = classify_question(q["text"], q.get("subject"))
+
+    # 🔥 ASYNC LLM CALL
+    explanation = await generate_explanation_async(q["text"], topic)
 
     result = {
         "id": q["id"],
         "question": q["text"],
         "topic": topic,
-        "explanation": generate_explanation(q["text"], topic),
+        "explanation": explanation,
         "source": "multi-source",
         "exam": "generic",
-        "model_used": "hybrid-llm"
+        "model_used": "openai/ollama/mock-auto"
     }
 
+    # 💾 CACHE SAVE
     cache_set(q["id"], result)
 
     metrics.cache_miss += 1
@@ -115,11 +136,12 @@ async def run_pipeline(metrics):
 
     print(f"\n📥 Total Input Questions: {len(questions)}")
 
+    # 🔥 DEDUP
     questions = deduplicate_questions(questions)
-
     print(f"🧠 Unique Questions After Dedup: {len(questions)}\n")
 
-    batch_size = 3
+    # 🔥 BATCHING
+    batch_size = 4
     batches = [questions[i:i + batch_size] for i in range(0, len(questions), batch_size)]
 
     results = []
@@ -127,12 +149,15 @@ async def run_pipeline(metrics):
     for batch in batches:
         batch_start = time.time()
 
-        batch_tasks = [process_question(q, metrics) for q in batch]
-        batch_results = await asyncio.gather(*batch_tasks)
+        tasks = [process_question(q, metrics) for q in batch]
+        batch_results = await asyncio.gather(*tasks)
 
         print(f"⚡ Batch processed in {time.time() - batch_start:.2f}s")
 
         results.extend(batch_results)
+
+    # 💾 SAVE OUTPUT
+    os.makedirs("outputs", exist_ok=True)
 
     with open("outputs/results.json", "w") as f:
         json.dump(results, f, indent=2)
