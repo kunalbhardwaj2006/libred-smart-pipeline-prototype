@@ -1,0 +1,27 @@
+=== LibreED Async Pipeline Execution Logs ===
+
+[RUN 1]
+
+❌ Cache MISS for q1
+⚠️ Ollama failed → fallback used
+⚡ Batch processed in 0.02s
+
+❌ Cache MISS for q2
+⚠️ Ollama failed → fallback used
+⚡ Batch processed in 0.03s
+
+Total Time: 1.21s
+Cache Hit Rate: 0%
+
+--------------------------------------------
+
+[RUN 2]
+
+⚡ Cache HIT for q1
+⚡ Batch processed in 0.00s
+
+⚡ Cache HIT for q2
+⚡ Batch processed in 0.00s
+
+Total Time: 0.01s
+Cache Hit Rate: 100%
