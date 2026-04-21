@@ -1,12 +1,227 @@
 [
   {
     "id": "q1",
-    "question": "What is OS?",
-    "topic": "Operating Systems"
+    "question": "What is Operating System?",
+    "topic": "Operating Systems",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Operating Systems\n\nExplanation:\nThis question relates to Operating Systems. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
   },
   {
     "id": "q2",
     "question": "Define DBMS",
-    "topic": "Database Management Systems"
+    "topic": "Database Management Systems",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Database Management Systems\n\nExplanation:\nThis question relates to Database Management Systems. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q3",
+    "question": "What is deadlock?",
+    "topic": "Operating Systems",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Operating Systems\n\nExplanation:\nThis question relates to Operating Systems. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q4",
+    "question": "Explain process vs thread",
+    "topic": "Operating Systems",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Operating Systems\n\nExplanation:\nThis question relates to Operating Systems. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q5",
+    "question": "What is CPU scheduling?",
+    "topic": "Operating Systems",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Operating Systems\n\nExplanation:\nThis question relates to Operating Systems. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q6",
+    "question": "Explain normalization in DBMS",
+    "topic": "Database Management Systems",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Database Management Systems\n\nExplanation:\nThis question relates to Database Management Systems. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q7",
+    "question": "What is ACID property?",
+    "topic": "Database Management Systems",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Database Management Systems\n\nExplanation:\nThis question relates to Database Management Systems. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q8",
+    "question": "Define TCP/IP model",
+    "topic": "Computer Networks",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Computer Networks\n\nExplanation:\nThis question relates to Computer Networks. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q9",
+    "question": "What is routing?",
+    "topic": "Computer Networks",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Computer Networks\n\nExplanation:\nThis question relates to Computer Networks. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q10",
+    "question": "Explain DNS",
+    "topic": "Computer Networks",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Computer Networks\n\nExplanation:\nThis question relates to Computer Networks. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q11",
+    "question": "What is stack vs queue?",
+    "topic": "Data Structures & Algorithms",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Data Structures & Algorithms\n\nExplanation:\nThis question relates to Data Structures & Algorithms. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q12",
+    "question": "Explain binary search",
+    "topic": "Data Structures & Algorithms",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Data Structures & Algorithms\n\nExplanation:\nThis question relates to Data Structures & Algorithms. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q13",
+    "question": "What is time complexity?",
+    "topic": "Data Structures & Algorithms",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Data Structures & Algorithms\n\nExplanation:\nThis question relates to Data Structures & Algorithms. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q14",
+    "question": "Define Big-O notation",
+    "topic": "Data Structures & Algorithms",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Data Structures & Algorithms\n\nExplanation:\nThis question relates to Data Structures & Algorithms. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q15",
+    "question": "Explain quicksort",
+    "topic": "Data Structures & Algorithms",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Data Structures & Algorithms\n\nExplanation:\nThis question relates to Data Structures & Algorithms. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q16",
+    "question": "What is hashing?",
+    "topic": "Data Structures & Algorithms",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Data Structures & Algorithms\n\nExplanation:\nThis question relates to Data Structures & Algorithms. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q17",
+    "question": "Explain graph traversal",
+    "topic": "Data Structures & Algorithms",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Data Structures & Algorithms\n\nExplanation:\nThis question relates to Data Structures & Algorithms. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q18",
+    "question": "What is machine learning?",
+    "topic": "Artificial Intelligence",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Artificial Intelligence\n\nExplanation:\nThis question relates to Artificial Intelligence. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q19",
+    "question": "Define supervised learning",
+    "topic": "Artificial Intelligence",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Artificial Intelligence\n\nExplanation:\nThis question relates to Artificial Intelligence. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q20",
+    "question": "What is overfitting?",
+    "topic": "Artificial Intelligence",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Artificial Intelligence\n\nExplanation:\nThis question relates to Artificial Intelligence. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q21",
+    "question": "Explain HTTP protocol",
+    "topic": "Computer Networks",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Computer Networks\n\nExplanation:\nThis question relates to Computer Networks. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q22",
+    "question": "What is REST API?",
+    "topic": "Computer Networks",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Computer Networks\n\nExplanation:\nThis question relates to Computer Networks. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q23",
+    "question": "Explain virtualization",
+    "topic": "Operating Systems",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Operating Systems\n\nExplanation:\nThis question relates to Operating Systems. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q24",
+    "question": "What is cloud computing?",
+    "topic": "Operating Systems",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Operating Systems\n\nExplanation:\nThis question relates to Operating Systems. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
+  },
+  {
+    "id": "q25",
+    "question": "Explain indexing in DBMS",
+    "topic": "Database Management Systems",
+    "explanation": "\n[MOCK FALLBACK]\n\nTopic: Database Management Systems\n\nExplanation:\nThis question relates to Database Management Systems. It tests fundamental concepts commonly asked in exams.\n",
+    "source": "multi-source",
+    "exam": "generic",
+    "model_used": "openai/ollama/mock-auto"
   }
 ]
